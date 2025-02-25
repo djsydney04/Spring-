@@ -26,7 +26,7 @@ const MainTabs = () => {
         tabBarInactiveTintColor: '#8E8E93',
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
-          borderTopWidth: 1,
+          borderTopWidth: 0,
           borderTopColor: '#E0E0E0',
           height: Platform.OS === 'ios' ? 80 : 60,
           paddingBottom: Platform.OS === 'ios' ? 25 : 5,
@@ -38,7 +38,7 @@ const MainTabs = () => {
           shadowOpacity: 0, // for iOS
           zIndex: 8, // ensure it's visible but not too high
         },
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
         tabBarItemStyle: {
           // Add more space between items
           marginHorizontal: 30, // Increased spacing between tabs
@@ -50,11 +50,9 @@ const MainTabs = () => {
         component={BookmarkScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="bookmark" color={color} focused={focused} size={28} />
+            <TabBarIcon name="bookmark" color={color} focused={focused} size={32} />
           ),
-          tabBarLabel: ({ color }) => (
-            <Text style={{ color, fontSize: 12 }}>Saved</Text>
-          )
+          tabBarLabel: () => null
         }}
       />
       <Tab.Screen 
@@ -63,12 +61,10 @@ const MainTabs = () => {
         options={{
           tabBarIcon: ({ color, focused }) => (
             <View style={{ transform: [{ rotate: '90deg' }] }}>
-              <TabBarIcon name="discover" color={color} focused={focused} size={28} />
+              <TabBarIcon name="discover" color={color} focused={focused} size={32} />
             </View>
           ),
-          tabBarLabel: ({ color }) => (
-            <Text style={{ color, fontSize: 12 }}>Discover</Text>
-          )
+          tabBarLabel: () => null
         }}
       />
       <Tab.Screen 
@@ -76,11 +72,9 @@ const MainTabs = () => {
         component={ActivityScreen}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name="activity" color={color} focused={focused} size={28} />
+            <TabBarIcon name="activity" color={color} focused={focused} size={32} />
           ),
-          tabBarLabel: ({ color }) => (
-            <Text style={{ color, fontSize: 12 }}>Activities</Text>
-          )
+          tabBarLabel: () => null
         }}
       />
     </Tab.Navigator>
